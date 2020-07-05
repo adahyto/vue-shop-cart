@@ -25,6 +25,9 @@ const store: StoreOptions<Result<Item[]>> = {
     removeItem(state, id: string) {
       const itemIndex: number = state.data.findIndex(i => i.id == id);
       itemIndex > -1 ? state.data.splice(itemIndex, 1) : new Error('Invalid index');
+    },
+    clear(state) {
+      state.data = new Array<Item>();
     }
   },
   actions: {
@@ -35,7 +38,10 @@ const store: StoreOptions<Result<Item[]>> = {
       contex.commit('editItem', item);
     },
     removeItem(context, id: string) {
-      context.commit('removeItem', id)
+      context.commit('removeItem', id);
+    },
+    clear(context) {
+      context.commit('clear');
     }
   },
   getters: {

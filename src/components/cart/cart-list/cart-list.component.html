@@ -1,5 +1,9 @@
 <div>
-    <v-subheader>{{items.length? 'Items' : 'No items added'}}</v-subheader>
+    <v-subheader>{{items.length? 'Items' : 'No items added'}} <v-btn v-if="items.length" icon color="grey"
+            @click="clear()">
+            <v-icon>mdi-delete-circle-outline</v-icon>
+        </v-btn>
+    </v-subheader>
     <v-simple-table class="grey lighten-5">
         <thead>
 
@@ -8,7 +12,7 @@
             <tr v-for="item in items">
                 <td><span>{{ item.name }}</span>
                 </td>
-                <td width="10%"><span>{{ item.quantity }}</span>
+                <td width="10%"><input type="number" v-model="item.quantity" @change="editItem(item)">
                 </td>
                 <td width="10%"><span>{{ item.quantity * item.price }}</span>
                 </td>
@@ -20,7 +24,7 @@
             </tr>
         </tbody>
     </v-simple-table>
-    <div v-if="calcSum()">
+    <div v-if="items.length">
         <v-divider></v-divider>
         <p class="total"><i>In total:</i> {{ calcSum() }}</p>
     </div>

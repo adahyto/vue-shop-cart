@@ -1,3 +1,15 @@
+.cart-list {
+    &_item {
+        display: flex;
+        align-items: center;
+        &el {
+            margin: 0 15px 0 15px;
+        }
+    }
+}
+.thin {
+    width: 25%;
+}
 .total{
     margin-top: 20px;
 }

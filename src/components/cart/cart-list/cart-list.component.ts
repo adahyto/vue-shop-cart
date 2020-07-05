@@ -13,7 +13,7 @@ export default class CartListComponent extends Vue {
     })
   }
   removeItem(id: string): void {
-    this.$store.dispatch('removeItem', id)
+    this.$store.dispatch('removeItem', id);
   }
   calcSum(): number {
     let sum = 0;
@@ -21,6 +21,12 @@ export default class CartListComponent extends Vue {
       sum = sum + item.price * item.quantity
     });
     return sum;
+  }
+  editItem(item: Item): void {
+    this.$store.dispatch('editItem', item);
+  }
+  clear(): void {
+    this.$store.dispatch('clear');
   }
 }
 
