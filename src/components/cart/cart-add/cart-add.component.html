@@ -1,20 +1,19 @@
-<v-form>
-    <v-container>
-        <v-row class="mb-6">
-            <v-col>
-                <v-text-field v-model="item.description" :counter="10" label="Description" required>
-                </v-text-field>
-            </v-col>
-
-            <v-col>
-                <v-text-field v-model="item.quantity" label="Quantity" required></v-text-field>
-            </v-col>
-            <v-col>
-                <v-text-field v-model="item.price" label="Price" required></v-text-field>
-            </v-col>
-            <v-col>
-                <v-btn @click="addNewItem" class="mr-4">submit</v-btn>
-            </v-col>
-        </v-row>
-    </v-container>
-</v-form>
+<div class="cart-add">
+    <v-form class="cart-add_form">
+        <div class="cart-add_form_el">
+            <v-text-field v-model="item.name" label="Name" required>
+            </v-text-field>
+        </div>
+        <div class="cart-add_form_el el-thin">
+            <v-text-field v-model="item.quantity" label="Quantity" required></v-text-field>
+        </div>
+        <div class="cart-add_form_el el-thin">
+            <v-text-field v-model="item.price" label="Price" required></v-text-field>
+        </div>
+        <div class="cart-add_form_el el-thin add-btn">
+            <v-btn icon color="grey" @click="addNewItem">
+                +
+            </v-btn>
+        </div>
+    </v-form>
+</div>

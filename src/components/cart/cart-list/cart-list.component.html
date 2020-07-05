@@ -1,26 +1,24 @@
 <div>
     <v-subheader>{{items.length? 'Items' : 'No items added'}}</v-subheader>
     <v-simple-table class="grey lighten-5">
-        <template v-slot:default>
-            <thead>
-                
-            </thead>
-            <tbody>
-                <tr v-for="item in items">
-                    <td width="60%"><span>{{ item.description }}</span>
-                    </td>
-                    <td><span>{{ item.quantity }}</span>
-                    </td>
-                    <td><span>{{ item.quantity * item.price }}</span>
-                    </td>
-                    <td>
-                        <v-btn icon color="grey" @click="removeItem(item.id)">
-                            <v-icon>mdi-delete-circle-outline</v-icon>
-                        </v-btn>
-                    </td>
-                </tr>
-            </tbody>
-        </template>
+        <thead>
+
+        </thead>
+        <tbody>
+            <tr v-for="item in items">
+                <td><span>{{ item.name }}</span>
+                </td>
+                <td width="10%"><span>{{ item.quantity }}</span>
+                </td>
+                <td width="10%"><span>{{ item.quantity * item.price }}</span>
+                </td>
+                <td width="10%">
+                    <v-btn icon color="grey" @click="removeItem(item.id)">
+                        <v-icon>mdi-delete-circle-outline</v-icon>
+                    </v-btn>
+                </td>
+            </tr>
+        </tbody>
     </v-simple-table>
-    <p>In total: <i>{{ calcSum() }}</i></p>
+    <p v-if="calcSum()"><i>In total:</i> {{ calcSum() }}</p>
 </div>
