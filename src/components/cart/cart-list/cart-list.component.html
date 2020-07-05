@@ -20,5 +20,8 @@
             </tr>
         </tbody>
     </v-simple-table>
-    <p v-if="calcSum()"><i>In total:</i> {{ calcSum() }}</p>
+    <div v-if="calcSum()">
+        <v-divider></v-divider>
+        <p class="total"><i>In total:</i> {{ calcSum() }}</p>
+    </div>
 </div>

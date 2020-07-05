@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 const store: StoreOptions<Result<Item[]>> = {
   state: {
-    name:"Vue cart",
+    name:"Vue on my cart",
     success: true,
     message: undefined,
     errorCode: 200,
